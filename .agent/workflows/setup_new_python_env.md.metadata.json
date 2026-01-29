@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_OTHER",
+  "summary": "Workflow to set up a Python AI environment with venv, pip upgrades, and installation of PyTorch, Pandas, and other data science essentials.",
+  "updatedAt": "2026-01-29T15:28:19.365248810Z"
+}

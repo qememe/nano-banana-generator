@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_OTHER",
+  "summary": "Workflow to set up a Modern C++ project with CMake, creating a standard source/include structure and a starter CMakeLists.txt.",
+  "updatedAt": "2026-01-29T15:28:19.382470811Z"
+}
