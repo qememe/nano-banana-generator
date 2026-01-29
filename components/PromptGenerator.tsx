@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-type Style = 'liminal' | 'brutalism';
+type Style = 'liminal' | 'brutalism' | 'dream' | 'y2k';
 
 export default function PromptGenerator() {
     const [keywords, setKeywords] = useState('');
@@ -84,6 +84,26 @@ export default function PromptGenerator() {
                             }`}
                     >
                         Brutalism
+                    </button>
+                    <button
+                        onClick={() => setStyle('dream')}
+                        className={`p-4 border-2 font-bold uppercase tracking-wider transition-all
+              ${style === 'dream'
+                                ? 'bg-pink-500/20 text-pink-200 border-pink-400 shadow-[0_0_15px_rgba(244,114,182,0.4)] backdrop-blur-sm'
+                                : 'bg-transparent border-[var(--color-border)] hover:border-pink-400 hover:text-pink-300 text-gray-400'
+                            }`}
+                    >
+                        Dreams
+                    </button>
+                    <button
+                        onClick={() => setStyle('y2k')}
+                        className={`p-4 border-2 font-bold uppercase tracking-wider transition-all
+              ${style === 'y2k'
+                                ? 'bg-cyan-900/40 text-cyan-300 border-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.4)] font-sans'
+                                : 'bg-transparent border-[var(--color-border)] hover:border-cyan-400 hover:text-cyan-300 text-gray-400'
+                            }`}
+                    >
+                        Y2K Future
                     </button>
                 </div>
             </div>

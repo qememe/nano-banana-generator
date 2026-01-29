@@ -14,17 +14,37 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'API key not configured' }, { status: 500 });
         }
 
+        let styleDescription = '';
+        switch (style) {
+            case 'liminal':
+                styleDescription = 'Liminal Space (Backrooms, empty, eerie, nostalgic, dreamcore)';
+                break;
+            case 'brutalism':
+                styleDescription = 'Brutalism (Concrete, heavy, monolithic, sharp structural edges, raw materials)';
+                break;
+            case 'dream':
+                styleDescription = 'Dreams (Surreal, logic-defying, weirdcore, abstract, subconscious, hazy, fever dream visuals)';
+                break;
+            case 'y2k':
+                styleDescription = 'Y2K Future 1998 (Retro-futurism, 90s CGI, translucent plastic, matrix code, chrome blobs, flying cars, utopia, Frutiger Aero origin)';
+                break;
+            default:
+                styleDescription = 'Artistic and detailed';
+        }
+
         const systemPrompt = `You are an expert prompt engineer for "Nano Banana Pro", a text-to-image AI model.
     Your goal is to generate detailed, artistic, and weird prompts based on the user's keywords and the selected style.
     
-    Style: ${style === 'liminal' ? 'Liminal Space (Backrooms, empty, eerie, nostalgic, dreamcore)' : 'Brutalism (Concrete, heavy, monolithic, sharp structural edges, raw materials)'}
+    Style: ${styleDescription}
     
     Instructions:
     1. Expand the keywords into a rich visual description.
     2. Focus on lighting, texture, camera angles, and atmosphere.
     3. For Liminal: emphasized emptiness, fluorescent buzz, infinite transition zones.
     4. For Brutalism: emphasized concrete textures, massive scale, oppressive geometry.
-    5. Return ONLY the prompt text, no explanations.
+    5. For Dreams: soft focus, melting objects, impossible geometry, subconscious symbols, weirdcore aesthetics.
+    6. For Y2K Future: fisheye lens, chrome reflections, cyan and neon green, early 3D render look, optimism, digital bokeh.
+    7. Return ONLY the prompt text, no explanations.
     `;
 
         const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
